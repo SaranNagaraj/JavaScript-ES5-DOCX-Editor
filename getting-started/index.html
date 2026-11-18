@@ -13,8 +13,20 @@
         </style></head><body><div class="stackblitz-container tailwind3"><div class="control-section">
     <title>Essential JS 2 - DocumentEditor</title>
         <div id="documenteditor_titlebar" class="e-de-ctn-title"></div>
-        <div id="documenteditor_container_body" style="display: block;height:calc(-230px + 100vh);">
-            <div id="container"></div>
+        <div id="documenteditor_container_body" style="display: flex;height:calc(-230px + 100vh);">
+            <div id="container" style="flex: 0 0 70%; width: 70%;"></div>
+            <div id="paste-panel" style="flex: 0 0 30%; width: 30%; padding: 12px; overflow: auto; box-sizing: border-box; border-left: 1px solid #ddd;">
+                <h3 style="margin-top:0">Paste Options</h3>
+                <p>Source content (copy it, or use the buttons to paste it at the cursor position in the document):</p>
+                <div id="paste-source" style="border:1px dashed #999; padding:8px; margin-bottom:12px;">
+                    <div style="font-family:Calibri,sans-serif; color:#0000ff; font-size:18pt;">Project Status Report</div>
+                    <p style="font-family:Arial,sans-serif; color:#ff0000; font-weight:bold; margin:12px 0;">This paragraph contains custom formatting including font color, font family, bold text, and increased spacing.</p>
+                    <ul style="color:#008000;"><li>Requirement Analysis</li><li>Development</li><li>Testing</li></ul>
+                </div>
+                <button id="paste-keep" class="e-btn" style="display:block;width:100%;margin-bottom:8px;">Keep Source Formatting</button>
+                <button id="paste-match" class="e-btn" style="display:block;width:100%;margin-bottom:8px;">Match Destination Format</button>
+                <button id="paste-text" class="e-btn" style="display:block;width:100%;">Paste Text Only</button>
+            </div>
         </div>
     </div>
 </div>
@@ -122,6 +134,7 @@
     /** sample level font icons ends*/
 </style>
 <script src="index.js"></script>
+<script src="paste-demo.js"></script>
 <script>
     window.addEventListener("beforeunload", onbeforeunload);
     function onbeforeunload() {
